@@ -1,0 +1,49 @@
+language: node_js
+node_js:
+  - node
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install
+
+before_script:
+  - git config --local user.name "CalElFe"
+  - git config --local user.email "calibur.tonyt@gmail.com"
+
+script:
+  - gatsby build
+
+after_script:
+  - cd ./public
+  - git init
+  - git add .
+  - git commit -m "Travis autobuild"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y-%m-%d_%H:%M:%S') - $(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
+  - git push --force --quiet "https://${GITHUB_TOKEN}@${GITHUB_REF}" master:master
+
+
+before_deploy:
+  - echo 'Start to deploy'
+  - export RELEASE_NAME=${RELEASE_NAME:-release_$(date +'%Y-%m-%d')}
+  - zip -r ./out/${RELEASE_NAME}.zip ./public
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: ./out/${RELEASE_NAME}.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    branch: master
+
+branches:
+  only:
+    - master
+
+env:
+  global:
+    - GITHUB_REF=https://github.com/CalElFe/kdvrharts_MC_web/tree/release
