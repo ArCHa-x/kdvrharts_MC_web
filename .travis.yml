@@ -9,21 +9,19 @@ cache:
 install:
   - npm install
 
-before_script:
-  - git config --local user.name "CalElFe"
-  - git config --local user.email "calibur.tonyt@gmail.com"
-
 script:
   - gatsby build
 
 after_script:
   - cd ./public
+  - git config user.name "CalElFe"
+  - git config user.email "calibur.tonyt@gmail.com"
   - git init
   - git remote add origin "https://CalElFe:${GITHUB_TOKEN}@${GITHUB_REF}"
   - git add .
   - export TRAVIS_TAG=${TRAVIS_TAG:-TRAVIS_BUILD_$(date +'%Y-%m-%d_%H:%M:%S')}
   - git commit -m ${TRAVIS_TAG}
-  - git push --force --set-upstream origin master:release
+  - git push --force --set-upstream origin master:gh-pages
 
 before_deploy:
   - echo 'Start to deploy'

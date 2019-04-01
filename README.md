@@ -5,12 +5,12 @@
   </a>
 </p>
 <h1 align="center">
-  <a href="https://mc.ttnaarashi.xyz/">卡杜拉维MC1.12服务器</a>
+  <a href="https://calelfe.github.io/kdvrharts_MC_web/">卡杜拉维MC1.12服务器</a>
 </h1>
 
 # The webpage repository of the server.
-## Using Gastby as content renderer with reactjs.
-## Server info can be seen [Here](https://www.mcmod.cn/play/sv/20181634.html)
+- Using Gastby as content renderer with reactjs.
+- Server info can be seen [Here](https://www.mcmod.cn/play/sv/20181634.html)
 
 # Following are auto generated contents by gatsby
 ## 🧐 What's inside?
