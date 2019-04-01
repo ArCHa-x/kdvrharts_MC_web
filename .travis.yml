@@ -20,9 +20,10 @@ after_script:
   - cd ./public
   - git init
   - git add .
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y-%m-%d_%H:%M:%S') - $(git log --format=%h -1)}
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y-%m-%d_%H:%M:%S')}
   - git commit -m ${TRAVIS_TAG}
-  - git push --force --quiet "https://${GITHUB_TOKEN}@${GITHUB_REF}" master:master
+  - git remote add origin "https://CalElFe:${GITHUB_TOKEN}@${GITHUB_REF}"
+  - git push --force -u origin release
 
 before_deploy:
   - echo 'Start to deploy'
@@ -44,4 +45,4 @@ branches:
 
 env:
   global:
-    - GITHUB_REF=github.com/CalElFe/kdvrharts_MC_web/tree/release
+    - GITHUB_REF=github.com/CalElFe/kdvrharts_MC_web.git
