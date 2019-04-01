@@ -19,11 +19,11 @@ script:
 after_script:
   - cd ./public
   - git init
-  - git add .
-  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y-%m-%d_%H:%M:%S')}
-  - git commit -m ${TRAVIS_TAG}
   - git remote add origin "https://CalElFe:${GITHUB_TOKEN}@${GITHUB_REF}"
-  - git push --force -u origin release
+  - git add .
+  - export TRAVIS_TAG=${TRAVIS_TAG:-TRAVIS_BUILD_$(date +'%Y-%m-%d_%H:%M:%S')}
+  - git commit -m ${TRAVIS_TAG}
+  - git push --force --set-upstream origin master:release
 
 before_deploy:
   - echo 'Start to deploy'
