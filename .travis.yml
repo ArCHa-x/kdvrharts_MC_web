@@ -45,3 +45,6 @@ branches:
 env:
   global:
     - GITHUB_REF=github.com/CalElFe/kdvrharts_MC_web.git
+
+notifications:
+  webhooks: https://hook.bearychat.com/=bwG2A/travis/6e3b0439bd293a3f16f1958079a0fc6c
