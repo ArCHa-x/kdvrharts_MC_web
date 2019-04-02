@@ -25,7 +25,7 @@ after_script:
 
 before_deploy:
   - echo 'Start to deploy'
-  - export RELEASE_NAME=${RELEASE_NAME:-release_$(date +'%Y-%m-%d_%H:%M:%S')}
+  - export RELEASE_NAME=${RELEASE_NAME:-release_$(date +'%Y-%m-%d_%H-%M-%S')}
   - mkdir out
   - zip -r ./out/${RELEASE_NAME}.zip ./public
   - git tag ${RELEASE_NAME}
