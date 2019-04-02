@@ -28,7 +28,7 @@ before_deploy:
   - export RELEASE_NAME=${RELEASE_NAME:-release_$(date +'%Y-%m-%d')}
   - mkdir out
   - zip -r ./out/${RELEASE_NAME}.zip ./public
-  - git tag -m ${TRAVIS_TAG}
+  - git tag -m ${RELEASE_NAME}
 
 deploy:
   provider: releases
