@@ -1,21 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
+import AppBar from "@material-ui/core/AppBar"
+import Icon from "@mdi/react"
+import { mdiCubeOutline } from "@mdi/js"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+export default () => (
+  <div>
+    <AppBar>
+      <div>
+        <p>
+          <Icon path={mdiCubeOutline}
+                size="30px"
+                color="#FFF"
+          />
+          卡杜拉维 MC1.12.2 Mod服
+        </p>
+      </div>
+    </AppBar>
+  </div>
 )
-
-export default IndexPage

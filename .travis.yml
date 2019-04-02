@@ -34,8 +34,7 @@ deploy:
   file: ./out/${RELEASE_NAME}.zip
   skip_cleanup: true
   on:
-    tags: true
-    branch: master
+    tags: false
 
 branches:
   only:
