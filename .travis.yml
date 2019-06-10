@@ -14,8 +14,8 @@ script:
 
 after_script:
   - cd ./public
-  - git config user.name "CalElFe"
-  - git config user.email "calibur.tonyt@gmail.com"
+  - git config user.name "Somiona"
+  - git config user.email "somionat@gmail.com"
   - git init
   - git remote add origin "https://CalElFe:${GITHUB_TOKEN}@${GITHUB_REF}"
   - git add .
